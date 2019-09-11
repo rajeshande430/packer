@@ -62,6 +62,8 @@ bulian - anything which is bulian ___
 			]
 }
 
+packer --help
+
 packer validate .json
 
 packer build -debug .json
