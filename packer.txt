@@ -1,0 +1,67 @@
+---------------------------------------------------------------------------------------------------
+PACKER
+---------------------------------------------------------------------------------------------------
+packer buils reusable virtual Images
+packer couldnot take physical machine images
+packer is developed in GO language
+installing packer in linux is copying one files
+
+---------------------------------------------------------------------------------------------------
+FILEFORMAT & BUILDER
+---------------------------------------------------------------------------------------------------
+FILEFORMAT	-	json file 
+
+BUILDER		-	where we want to create a images (aws/azure/vmware/google)
+				credentials has to be provided to the packer
+
+jason file = name + values + keypairs
+			
+"name": 'rajesh ande
+"value": 0526952525
+
+multiple name value pairs
+{
+	'name': 'qt',
+	'age': 10,
+	'is online available': True
+}
+
+test - anything which is text '' or ""
+number - anything which is number ___
+bulian - anything which is bulian ___
+
+{
+	'name': 'qt',									------------ name value pair
+	'age': 10,
+	'is online available': True
+	'courses': ['aws', 'azure', 'devops'], 			------------ array 
+	'address': [{
+				'buildingname1': 'ameerpetbuildin1',
+				'city1': 'hyderabad1'
+				},
+				{
+				'buildingname2': 'ameerpetbuildin2',
+				'city2': 'hyderabad2'
+				}]
+}
+------------------------------------------------------------------------------------------
+#jason which starts with curly brases and ends with curly brases
+{
+		//## there are multiple builders so [] 
+"builders": [
+		//#each builder has multiple values so {}, {}
+	{
+    "type": "amazon-ebs"
+    "access_key": "AKIA2F7HBAZMES2YIHOS"
+    "ami_name": "ubuntu via packer"
+    "instance_type": "t2.micro"
+    "region": "us-west-2"
+    "secret_key": "misUI8B9CMIlCr0nbYhtDAiVGIUN3xIoTVTqySRr"
+    "source_ami": "ami-06f2f779464715dc5"
+	}
+			]
+}
+
+packer validate .json
+
+packer build -debug .json

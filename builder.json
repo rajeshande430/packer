@@ -1,0 +1,16 @@
+
+
+{
+    "builders": [
+    {
+    "type": "amazon-ebs",
+    "access_key": "AKIA2F7HBAZMES2YIHOS",
+    "ami_name": "ubuntu via packer",
+    "instance_type": "t2.micro",
+    "region": "us-west-2",
+    "secret_key": "misUI8B9CMIlCr0nbYhtDAiVGIUN3xIoTVTqySRr",
+    "source_ami": "ami-06f2f779464715dc5",
+    "ssh_username": "ubuntu"
+    }
+            ]
+}
