@@ -1,0 +1,25 @@
+{
+    "variables": {
+        "azure_subscription_id": "",
+        "azure_client_id": "",
+        "azure_client_secret": "",
+        "azure_tenant_id": ""
+    },
+    "builders": [{
+        "type": "azure-arm",
+        "subscription_id": "{{user `azure_subscription_id`}}",
+        "client_id ": "{{user `azure_client_id`}}",
+        "client_secret": "{{user `azure_client_secret`}}",
+        "tenant_id": "{{user `azure_tenant_id`}}",
+        "image_publisher ": "",
+        "image_offer": "",
+        "image_sku": "",
+        "vm_size": ""
+    }],
+    "provisioners": [{
+        "type": "shell",
+        "script": "./deploytomcat.sh"
+        }]
+
+    }
+}
