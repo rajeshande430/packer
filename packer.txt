@@ -44,7 +44,7 @@ bulian - anything which is bulian ___
 				'city2': 'hyderabad2'
 				}]
 }
-------------------------------------------------------------------------------------------
+---------------------------https://www.packer.io/docs/builders/amazon-ebs.html-----------------------------------------------------
 #jason which starts with curly brases and ends with curly brases
 {
 		//## there are multiple builders so [] 
@@ -67,3 +67,44 @@ packer --help
 packer validate .json
 
 packer build -debug .json
+--------------------------------------------------------------------------------------------------------------
+PROVISIONERS
+--------------------------------------------------------------------------------------------------------------
+Provisioners
+Provisioners use builtin and third-party software to install and configure the machine image after booting. Provisioners prepare the system for use, so common use cases for provisioners include:
+
+installing packages
+patching the kernel
+creating users
+downloading application code
+These are just a few examples, and the possibilities for provisioners are endless.
+
+Shell Provisioner
+Type: shell
+
+The shell Packer provisioner provisions machines built by Packer using shell scripts. Shell provisioning is the easiest way to get software installed and configured on a machine.
+
+{
+    "builders": [
+    {
+    "type": "amazon-ebs",
+    "access_key": "******************",
+    "ami_name": "ubuntu via packer",
+    "instance_type": "t2.micro",
+    "region": "us-west-2",
+    "secret_key": "***************",
+    "source_ami": "ami-06f2f779464715dc5",
+    "ssh_username": "ubuntu"
+    }
+                 ],
+    "provisioners": [
+    {
+    "type": "shell",
+    "inline": [
+        "sudo apt-get update",
+        "sudo apt-get install openjdk-8-jdk -y"
+                ]
+    }
+                    ]
+
+}
